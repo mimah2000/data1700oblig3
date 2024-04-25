@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestilling av kinobilletter</title>
+    <script src="billett.js"></script>
+    <!-- Kodeblokken inkluderer stilregel for elementer med klassenavnet error ved bruk av css. -->
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--Heading-->
+<h1>Bestilling av kinobillett</h1>
+
+<!--Taggen lager en tabell som viser ulike skjemafelt. Disse kan fylles ut for å kjøpe en filmbillett-->
+
+    <table class="table">
+    <!-- <tr><td> definerer rader i tabellen og cellene i radene -->
+    <tr>
+        <td><label for="film">Film:</label></td>
+        <!--tabellrad som lar brukeren velge film ut ifra en rullegardinliste -->
+        <td><select id="film" class="form-control">
+            <option value="" style="..." selected disabled>Velg film</option>
+            <option value="Minions 1">Minions 1</option>
+            <option value="Minions 2">Minions 2</option>
+            <option value="Minions 3">Minions 3</option>
+            <option value="Minions 4">Minions 4</option>
+        </select></td>
+        <td class="error" id="filmError"></td>
+    </tr>
+
+     <tr>
+         <td><label for="antall">Antall</label></td>
+         <td><input type="number" class="form-control" id="antall" name="antall" min="1" max="20"></td>
+         <!--Oppretter e tabelldatacelle som brukes til å vise en feilmelding i skjemaet-->
+         <td class="error" id="antallError"></td>
+     <tr>
+     <tr>
+        <td><label for="fornavn">Fornavn</label></td>
+        <td><input type="text" class="form-control" id="fornavn" name="fornavn"></td>
+        <td class="error" id="fornavnError"></td>
+    </tr>
+
+    <tr>
+        <td><label for="etternavn">Etternavn</label></td>
+        <td><input type="text" class="form-control" id="etternavn" name="etternavn"></td>
+        <td class="error" id="etternavnError"></td>
+    </tr>
+     <td>
+         <label for="tlf">Tlf</label></td>
+            <td> <div class="input-group mb-3"
+                 <span class="input-group-text" id="basic-addon1">+47</span>
+                 <input type="number" class="form-control" id="tlf" name="tlf" min="1"></div></td>
+     <td class="error" id="tlfError"></td>
+     <tr>
+     </tr>
+     <td><label for="epost">Epost:</label></td>
+     <td><input type="email" class="form-control" id="epost" name="epost" placeholder="name@example.com"></td>
+     <td class="error" id="epostError"></td>
+     <tr>
+    </table>
+
+<br>
+<!--Knappeelementet "Kjop billett" og onclick-attributt "lagreBillett()" er en JavaScript-funksjon som kalles opp når knappen-->
+<!--type er satt til button. Kunne brukt submit hvis jeg vil at skjemaet skal sendes-->
+
+<button class="btn btn-primary" onclick="lagreBillett()">Kjop billett</button></br>
+
+<h2>Alle billetter</h2>
+<table class="table table-striped" id="billetter"></table>
+
+<!--Tømmer listen av billetter som er kjøpt så langt-->
+<button class="btn btn-danger" onclick="clearAll()">Slett alle billettene</button>
+
+</body>
+</html>
